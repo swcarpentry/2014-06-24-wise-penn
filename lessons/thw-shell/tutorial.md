@@ -49,7 +49,7 @@ by manipulating some experimental data from a hearing test. To get
 the data for this test, you will need internet access. Just enter the
 command:
 
-    git clone https://github.com/{{page.github_username}}/{{page.bootcamp_slug}}.git
+    git clone -b master https://github.com/{{page.github_username}}/{{page.bootcamp_slug}}.git
 
 Followed by:
 
