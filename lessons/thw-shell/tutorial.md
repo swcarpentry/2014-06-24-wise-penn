@@ -1,8 +1,8 @@
 ---
 layout: lesson
 root: ../..
-github_username: your_user_id
-bootcamp_slug: yyyy-mm-dd-site
+github_username: swcarpentry
+bootcamp_slug: 2014-06-24-wise-penn
 title: The Unix Shell
 ---
 **Based on material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
