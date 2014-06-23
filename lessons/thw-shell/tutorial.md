@@ -776,7 +776,7 @@ Hint: To print the smallest file, use:
 
     wc bert/* | sort -k 3 -n | head -n 1
 
-***Short Exercise***
+
 Printing the smallest file seems pretty useful. We don't want to type
 out that long command often. Let's create a simple script, a simple
 program, to run this command. The program will look at all of the
