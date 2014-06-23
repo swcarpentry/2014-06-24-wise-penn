@@ -1,0 +1,619 @@
+<p><strong>Based on material by Milad Fatenejad, Sasha Wood, and Radhika Khetani</strong></p>
+
+<h2 id='what_is_the_shell_and_how_do_i_access_it'>What is the shell and how do I access it?</h2>
+
+<p>The <em>shell</em> is a program that presents a command line interface which allows you to control your computer using commands entered with a keyboard instead of controlling graphical user interfaces (GUIs) with a mouse/keyboard combination.</p>
+
+<p>Use a browser to open the tutorial on github, located at: http://github.com/swcarpentry/2014-06-24-wise-penn</p>
+
+<p>Click on the directory named <code>shell</code>.</p>
+
+<p>A <em>terminal</em> is a program you run that gives you access to the shell. There are many different terminal programs that vary across operating systems.</p>
+
+<p>There are many reasons to learn about the shell. In my opinion, the most important reasons are that:</p>
+
+<ol>
+<li>
+<p>It is very common to encounter the shell and command-line-interfaces in scientific computing, so you will probably have to learn it eventually</p>
+</li>
+
+<li>
+<p>The shell is a really powerful way of interacting with your computer. GUIs and the shell are complementary - by knowing both you will greatly expand the range of tasks you can accomplish with your computer. You will also be able to perform many tasks more efficiently.</p>
+</li>
+</ol>
+
+<p>The shell is just a program and there are many different shell programs that have been developed. The most common shell (and the one we will use) is called the Bourne-Again SHell (bash). Even if bash is not the default shell, it is usually installed on most systems and can be started by typing <code>bash</code> in the terminal. Many commands, especially a lot of the basic ones, work across the various shells but many things are different. I recommend sticking with bash and learning it well. (<a href='http://en.wikipedia.org/wiki/Bash_(Unix_shell'>Here is a link for more information</a>)</p>
+
+<p>To open a terminal, just single click on the &#8220;Terminal&#8221; icon on the Desktop.</p>
+
+<h2 id='the_example_manipulating_experimental_data_files'>The Example: Manipulating Experimental Data Files</h2>
+
+<p>We will spend most of our time learning about the basics of the shell by manipulating some experimental data from a hearing test. To get the data for this test, you will need internet access. Just enter the command:</p>
+
+<pre><code>git clone https://github.com/swcarpentry/2014-06-24-wise-penn.git</code></pre>
+
+<p>Followed by:</p>
+
+<pre><code>cd 2014-06-24-wise-penn</code></pre>
+
+<p>These 2 commands will grab all of the data needed for this workshop from the internet.</p>
+
+<h2 id='lets_get_started'>Let&#8217;s get started</h2>
+
+<p>One very basic command is <code>echo</code>. This command just prints text to the terminal. Try the command:</p>
+
+<pre><code>echo Hello, World</code></pre>
+
+<p>Then press enter. You should see the text &#8220;Hello, World&#8221; printed back to you. The echo command is useful for printing from a shell script, for displaying variables, and for generating known values to pass to other programs.</p>
+
+<h3 id='moving_around_the_file_system'>Moving around the file system</h3>
+
+<p>Let&#8217;s learn how to move around the file system using command line programs. This is really easy to do using a GUI (just click on things). Once you learn the basic commands, you&#8217;ll see that it is really easy to do in the shell too.</p>
+
+<p>First we have to know where we are. The program <code>pwd</code> (print working directory) tells you where you are sitting in the directory tree. The command <code>ls</code> will list the files in files in the current directory. Directories are often called &#8220;folders&#8221; because of how they are represented in GUIs. Directories are just listings of files. They can contain other files or directories.</p>
+
+<p>Whenever you start up a terminal, you will start in a special directory called the <em>home</em> directory. Every user has their own home directory where they have full access to do whatever they want. For example, if our user ID is <code>swc</code>, the <code>pwd</code> command tells us that we are in the <code>/home/swc</code> directory. This is the home directory for the <code>swc</code> user. That is our user name. You can always find out your user name by entering the command <code>whoami</code>.</p>
+
+<p><strong>File Types</strong></p>
+
+<p>When you enter the <code>ls</code> command lists the contents of the current directory. There are several items in the home directory, notice that they are all colored blue. This tells us that all of these items are directories as opposed to files.</p>
+
+<p>Lets create an empty file using the <code>touch</code> command. Enter the command:</p>
+
+<pre><code>touch testfile</code></pre>
+
+<p>Then list the contents of the directory again. You should see that a new entry, called <code>testfile</code>, exists. It is colored white meaning that it is a file, as opposed to a directory. The <code>touch</code> command just creates an empty file.</p>
+
+<p>Some terminals will not color the directory entries in this very convenient way. In those terminals, use <code>ls -F</code> instead of <code>ls</code>. The <code>-F</code> argument modifies the results so that a slash is placed at the end of directories. If the file is <em>executable</em> meaning that it can be run like a program, then a star will be placed at the end of of the file name.</p>
+
+<p>You can also use the command <code>ls -l</code> to see whether items in a directory are files or directories. <code>ls -l</code> gives a lot more information too, such as the size of the file and information about the owner. If the entry is a directory, then the first letter will be a &#8220;d&#8221;. The fifth column shows you the size of the entries in bytes. Notice that <code>testfile</code> has a size of zero.</p>
+
+<p>Now, let&#8217;s get rid of <code>testfile</code>. To remove a file, just enter the command:</p>
+
+<pre><code>rm testfile</code></pre>
+
+<p>The <code>rm</code> command can be used to remove files. If you enter <code>ls</code> again, you will see that <code>testfile</code> is gone.</p>
+
+<p><strong>Changing Directories</strong></p>
+
+<p>Now, let&#8217;s move to a different directory. The command <code>cd</code> (change directory) is used to move around. Let&#8217;s move into the <code>2014-06-24-wise-penn</code> directory. Enter the following command:</p>
+
+<pre><code>cd 2014-06-24-wise-penn</code></pre>
+
+<p>Now use the <code>ls</code> command to see what is inside this directory. You will see that there is an entry which is green. This means that this is an executable. If you use <code>ls -F</code> you will see that this file ends with a star.</p>
+
+<p>This directory contains all of the material for this bootcamp. Now move to the directory containing the data for the shell tutorial:</p>
+
+<pre><code>cd shell</code></pre>
+
+<p>If you enter the <code>cd</code> command by itself, you will return to the home directory. Try this, and then navigate back to the <code>shell</code> directory.</p>
+
+<h3 id='arguments'>Arguments</h3>
+
+<p>Most programs take additional arguments that control their exact behavior. For example, <code>-F</code> and <code>-l</code> are arguments to <code>ls</code>. The <code>ls</code> program, like many programs, take a lot of arguments. But how do we know what the options are to particular commands?</p>
+
+<p>Most commonly used shell programs have a manual. You can access the manual using the <code>man</code> program. Try entering:</p>
+
+<pre><code>man ls</code></pre>
+
+<p>This will open the manual page for <code>ls</code>. Use the space key to go forward and b to go backwards. When you are done reading, just hit <code>q</code> to exit.</p>
+
+<p>Programs that are run from the shell can get extremely complicated. To see an example, open up the manual page for the <code>find</code> program, which we will use later this session. No one can possibly learn all of these arguments, of course. So you will probably find yourself referring back to the manual page frequently.</p>
+
+<p><strong>Examining the contents of other directories</strong></p>
+
+<p>By default, the <code>ls</code> commands lists the contents of the working directory (i.e. the directory you are in). You can always find the directory you are in using the <code>pwd</code> command. However, you can also give <code>ls</code> the names of other directories to view. Navigate to the home directory if you are not already there. Then enter the command:</p>
+
+<pre><code>ls 2014-06-24-wise-penn</code></pre>
+
+<p>This will list the contents of the <code>2014-06-24-wise-penn</code> directory without you having to navigate there. Now enter:</p>
+
+<pre><code>ls 2014-06-24-wise-penn/shell</code></pre>
+
+<p>This prints the contents of <code>shell</code>. The <code>cd</code> command works in a similar way. Try entering:</p>
+
+<pre><code>cd 2014-06-24-wise-penn/shell</code></pre>
+
+<p>and you will jump directly to <code>shell</code> without having to go through the intermediate directory.</p>
+
+<h3 id='full_vs_relative_paths'>Full vs. Relative Paths</h3>
+
+<p>The <code>cd</code> command takes an argument which is the directory name. Directories can be specified using either a <em>relative</em> path a full <em>path</em>. The directories on the computer are arranged into a hierarchy. The absolute path tells you where a directory is in that hierarchy. Navigate to the home directory. Now, enter the <code>pwd</code> command and you should see:</p>
+
+<pre><code>/home/swc</code></pre>
+
+<p>which is the full name of your home directory. This tells you that you are in a directory called <code>swc</code>, which sits inside a directory called <code>home</code> which sits inside the very top directory in the hierarchy. The very top of the hierarchy is a directory called <code>/</code> which is usually referred to as the <em>root directory</em>. So, to summarize: <code>swc</code> is a directory in <code>home</code> which is a directory in <code>/</code>.</p>
+
+<p>Now enter the following command:</p>
+
+<pre><code>cd /home/swc/2014-06-24-wise-penn/shell</code></pre>
+
+<p>This jumps to <code>shell</code>. Now go back to the home directory. We saw earlier that the command:</p>
+
+<pre><code>cd 2014-06-24-wise-penn/shell</code></pre>
+
+<p>had the same effect - it took us to the <code>shell</code> directory. But, instead of specifying the absolute path (<code>/home/swc/2014-06-24-wise-penn/shell</code>), we specified a <em>relative path</em>. In other words, we specified the path relative to our current directory. A absolute path always starts with a <code>/</code>. A relative path does not. You can usually use either a absolute path or a relative path depending on what is most convenient. If we are in the home directory, it is more convenient to just enter the relative path since it involves less typing.</p>
+
+<p>Now, list the contents of the /bin directory. Do you see anything familiar in there?</p>
+
+<h3 id='saving_time_with_shortcuts_wild_cards_and_tab_completion'>Saving time with shortcuts, wild cards, and tab completion</h3>
+
+<p><strong>Shortcuts</strong></p>
+
+<p>There are some shortcuts which you should know about. Dealing with the home directory is very common. So, in the shell the tilde character, <code>~</code>, is a shortcut for your home directory. Navigate to the <code>shell</code> directory, then enter the command:</p>
+
+<pre><code>ls ~</code></pre>
+
+<p>This prints the contents of your home directory, without you having to type the absolute path. The shortcut <code>..</code> always refers to the directory above your current directory. Thus:</p>
+
+<pre><code>ls ..</code></pre>
+
+<p>prints the contents of the <code>/home/swc/2014-06-24-wise-penn</code>. You can chain these together, so:</p>
+
+<pre><code>ls ../../</code></pre>
+
+<p>prints the contents of <code>/home/swc</code> which is your home directory. Finally, the special directory <code>.</code> always refers to your current directory. So, <code>ls</code>, <code>ls .</code>, and <code>ls ././././.</code> all do the same thing, they print the contents of the current directory. This may seem like a useless shortcut right now, but we&#8217;ll see when it is needed in a little while.</p>
+
+<p>To summarize, the commands <code>ls ~</code>, <code>ls ~/.</code>, <code>ls ../../</code>, and <code>ls
+/home/swc</code> all do exactly the same thing. These shortcuts are not necessary, they are provided for your convenience.</p>
+
+<p><strong>Our data set: Cochlear Implants</strong></p>
+
+<p>A cochlear implant is a small electronic device that is surgically implanted in the inner ear to give deaf people a sense of hearing. More than a quarter of a million people have them, but there is still no widely-accepted benchmark to measure their effectiveness. In order to establish a baseline for such a benchmark, our supervisor got teenagers with CIs to listen to audio files on their computer and report:</p>
+
+<ol>
+<li>the quietest sound they could hear</li>
+
+<li>the lowest and highest tones they could hear</li>
+
+<li>the narrowest range of frequencies they could discriminate</li>
+</ol>
+
+<p>To participate, subjects attended our laboratory and one of our lab techs played an audio sample, and recorded their data - when they first heard the sound, or first heard a difference in the sound. Each set of test results were written out to a text file, one set per file. Each participant has a unique subject ID, and a made-up subject name. Each experiment has a unique experiment ID. The experiment has collected 351 files so far.</p>
+
+<p>The data is a bit of a mess! There are inconsistent file names, there are extraneous &#8220;NOTES&#8221; files that we&#8217;d like to get rid of, and the data is spread across many directories. We are going to use shell commands to get this data into shape. By the end we would like to:</p>
+
+<ol>
+<li>
+<p>Put all of the data into one directory called &#8220;alldata&#8221;</p>
+</li>
+
+<li>
+<p>Have all of the data files in there, and ensure that every file has a &#8220;.txt&#8221; extension</p>
+</li>
+
+<li>
+<p>Get rid of the extraneous &#8220;NOTES&#8221; files</p>
+</li>
+</ol>
+
+<p>If we can get through this example in the available time, we will move onto more advanced shell topics&#8230;</p>
+
+<p><strong>Wild cards</strong></p>
+
+<p>Navigate to the <code>shell/data/thomas</code> directory. This directory contains our hearing test data for Thomas. If we type <code>ls</code>, we will see that there are a bunch of files which are just four digit numbers. By default, <code>ls</code> lists all of the files in a given directory. The <code>*</code> character is a shortcut for &#8220;everything&#8221;. Thus, if you enter <code>ls *</code>, you will see all of the contents of a given directory. Now try this command:</p>
+
+<pre><code>ls *1</code></pre>
+
+<p>This lists every file that ends with a <code>1</code>. This command:</p>
+
+<pre><code>ls /usr/bin/*.sh</code></pre>
+
+<p>Lists every file in <code>/usr/bin</code> that ends in the characters <code>.sh</code>. And this command:</p>
+
+<pre><code>ls *4*1</code></pre>
+
+<p>lists every file in the current directory which contains the number <code>4</code>, and ends with the number <code>1</code>. There are four such files: <code>0241</code>, <code>0341</code>, <code>0431</code>, and <code>0481</code>.</p>
+
+<p>So how does this actually work? Well&#8230;when the shell (bash) sees a word that contains the <code>*</code> character, it automatically looks for files that match the given pattern. In this case, it identified four such files. Then, it replaced the <code>*4*1</code> with the list of files, separated by spaces. In other the two commands:</p>
+
+<pre><code>ls *4*1
+ls 0241 0341 0431 0481</code></pre>
+
+<p>are exactly identical. The <code>ls</code> command cannot tell the difference between these two things.</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Do each of the following using a single <code>ls</code> command without navigating to a different directory.</p>
+
+<ol>
+<li>List all of the files in <code>/bin</code> that contain the letter <code>a</code></li>
+
+<li>List all of the files in <code>/bin</code> that contain the letter <code>a</code> or the letter <code>b</code></li>
+
+<li>List all of the files in <code>/bin</code> that contain the letter <code>a</code> AND the letter <code>b</code></li>
+</ol>
+<hr />
+<p><strong>Tab Completion</strong></p>
+
+<p>Navigate to the home directory. Typing out directory names can waste a lot of time. When you start typing out the name of a directory, then hit the tab key, the shell will try to fill in the rest of the directory name. For example, enter:</p>
+
+<pre><code>cd S&lt;tab&gt;</code></pre>
+
+<p>The shell will fill in the rest of the directory name for <code>2014-06-24-wise-penn</code>. Now enter:</p>
+
+<pre><code>ls 3&lt;tab&gt;&lt;tab&gt;</code></pre>
+
+<p>When you hit the first tab, nothing happens. The reason is that there are multiple directories in the home directory which start with 3. Thus, the shell does not know which one to fill in. When you hit tab again, the shell will list the possible choices.</p>
+
+<p>Tab completion can also fill in the names of programs. For example, enter <code>e&lt;tab&gt;&lt;tab&gt;</code>. You will see the name of every program that starts with an <code>e</code>. One of those is <code>echo</code>. If you enter <code>ec&lt;tab&gt;</code> you will see that tab completion works.</p>
+
+<p><strong>Command History</strong></p>
+
+<p>You can easily access previous commands. Hit the up arrow.<br />Hit it again. You can step backwards through your command history. The down arrow takes your forwards in the command history.</p>
+
+<p>^-C will cancel the command you are writing, and give you a fresh prompt.</p>
+
+<p>^-R will do a reverse-search through your command history. This is very useful.</p>
+
+<h3 id='which_program'>Which program?</h3>
+
+<p>Commands like <code>ls</code>, <code>rm</code>, <code>echo</code>, and <code>cd</code> are just ordinary programs on the computer. A program is just a file that you can <em>execute</em>. The program <code>which</code> tells you the location of a particular program. For example:</p>
+
+<pre><code>which ls</code></pre>
+
+<p>Will return &#8220;/bin/ls&#8221;. Thus, we can see that <code>ls</code> is a program that sits inside of the <code>/bin</code> directory. Now enter:</p>
+
+<pre><code>which find</code></pre>
+
+<p>You will see that <code>find</code> is a program that sits inside of the <code>/usr/bin</code> directory.</p>
+
+<p>So &#8230; when we enter a program name, like <code>ls</code>, and hit enter, how does the shell know where to look for that program? How does it know to run <code>/bin/ls</code> when we enter <code>ls</code>. The answer is that when we enter a program name and hit enter, there are a few standard places that the shell automatically looks. If it can&#8217;t find the program in any of those places, it will print an error saying &#8220;command not found&#8221;. Enter the command:</p>
+
+<pre><code>echo $PATH</code></pre>
+
+<p>This will print out the value of the <code>PATH</code> environment variable. More on environment variables later. Notice that a list of directories, separated by colon characters, is listed. These are the places the shell looks for programs to run. If your program is not in this list, then an error is printed. The shell ONLY checks in the places listed in the <code>PATH</code> environment variable.</p>
+
+<p>Navigate to the <code>shell</code> directory and list the contents. You will notice that there is a program (executable file) called <code>hello</code> in this directory. Now, try to run the program by entering:</p>
+
+<pre><code>hello</code></pre>
+
+<p>You should get an error saying that hello cannot be found. That is because this directory is not in the <code>PATH</code>. You can run the <code>hello</code> program by entering:</p>
+
+<pre><code>./hello</code></pre>
+
+<p>Remember that <code>.</code> is a shortcut for the current working directory. This tells the shell to run the <code>hello</code> program which is located right here. So, you can run any program by entering the path to that program. You can run <code>hello</code> equally well by specifying:</p>
+
+<pre><code>/home/swc/2014-06-24-wise-penn/shell/hello</code></pre>
+
+<p>Or by entering:</p>
+
+<pre><code>../shell/hello</code></pre>
+
+<p>When there are no <code>/</code> characters, the shell assumes you want to look in one of the default places for the program.</p>
+
+<h3 id='examining_files'>Examining Files</h3>
+
+<p>We now know how to switch directories, run programs, and look at the contents of directories, but how do we look at the contents of files?</p>
+
+<p>The easiest way to examine a file is to just print out all of the contents using the program <code>cat</code>. Enter the following command:</p>
+
+<pre><code>cat appaloosa.txt</code></pre>
+
+<p>This prints out the contents of the <code>appaloosa.txt</code> file. If you enter:</p>
+
+<pre><code>cat appaloosa.txt appaloosa.txt</code></pre>
+
+<p>It will print out the contents of <code>appaloosa.txt</code> twice. <code>cat</code> just takes a list of file names and writes them out one after another (this is where the name comes from, <code>cat</code> is short for concatenate).</p>
+<hr />
+<p><strong>Short Exercises</strong></p>
+
+<ol>
+<li>
+<p>Print out the contents of the <code>shell/dictionary.txt</code> file. What does this file contain?</p>
+</li>
+
+<li>
+<p>Without changing directories, (you should still be in <code>shell</code>), use one short command to print the contents of all of the files in the <code>/home/swc/2014-06-24-wise-penn/shell/data/thomas</code> directory.</p>
+</li>
+</ol>
+<hr />
+<p><code>cat</code> is a terrific program, but when the file is really big, it can be annoying to use. The program, <code>less</code>, is useful for this case. Enter the following command:</p>
+
+<pre><code>less shell/dictionary.txt</code></pre>
+
+<p><code>less</code> opens the file, and lets you navigate through it. The commands are identical to the <code>man</code> program. Use &#8220;space&#8221; to go forward and hit the &#8220;b&#8221; key to go backwards. The &#8220;g&#8221; key goes to the beginning of the file and &#8220;G&#8221; goes to the end. Finally, hit &#8220;q&#8221; to quit.</p>
+
+<p><code>less</code> also gives you a way of searching through files. Just hit the &#8221;/&#8221; key to begin a search. Enter the name of the word you would like to search for and hit enter. It will jump to the next location where that word is found. Try searching the <code>dictionary.txt</code> file for the word &#8220;cat&#8221;. If you hit &#8221;/&#8221; then &#8220;enter&#8221;, <code>less</code> will just repeat the previous search. <code>less</code> searches from the current location and works its way forward. If you are at the end of the file and search for the word &#8220;cat&#8221;, <code>less</code> will not find it. You need to go to the beginning of the file and search.</p>
+
+<p>Remember, the <code>man</code> program uses the same commands, so you can search documentation using &#8221;/&#8221; as well!</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Use the commands we&#8217;ve learned so far to figure out how to search in reverse while using <code>less</code>.</p>
+<hr />
+<h3 id='redirection'>Redirection</h3>
+
+<p>Let&#8217;s turn to the experimental data from the hearing tests that we began with. This data is located in the <code>shell/data</code> directory. Each subdirectory corresponds to a particular participant in the study. Navigate to the <code>bert</code> subdirectory in <code>data</code>. There are a bunch of text files which contain experimental data results. Lets print them all:</p>
+
+<pre><code>cat au*</code></pre>
+
+<p>Now enter the following command:</p>
+
+<pre><code>cat au* &gt; ../all_data</code></pre>
+
+<p>This tells the shell to take the output from the <code>cat au*</code> command and dump it into a new file called <code>../all_data</code>. To verify that this worked, examine the <code>all_data</code> file. If <code>all_data</code> had already existed, we would overwritten it. So the <code>&gt;</code> character tells the shell to take the output from what ever is on the left and dump it into the file on the right. The <code>&gt;&gt;</code> characters do almost the same thing, except that they will append the output to the file if it already exists.</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Use <code>&gt;&gt;</code>, to append the contents of all of the files which contain the number 4 in the directory:</p>
+
+<pre><code>/home/swc/2014-06-24-wise-penn/shell/data/gerdal</code></pre>
+
+<p>to the existing <code>all_data</code> file. Thus, when you are done <code>all_data</code> should contain all of the experiment data from Bert and any experimental data file from gerdal that contains the number 4.</p>
+<hr />
+<h3 id='creating_moving_copying_and_removing'>Creating, moving, copying, and removing</h3>
+
+<p>We&#8217;ve created a file called <code>all_data</code> using the redirection operator <code>&gt;</code>. This file is critical - it&#8217;s our analysis results - so we want to make copies so that the data is backed up. Lets copy the file using the <code>cp</code> command. The <code>cp</code> command backs up the file. Navigate to the <code>data</code> directory and enter:</p>
+
+<pre><code>cp all_data all_data_backup</code></pre>
+
+<p>Now <code>all_data_backup</code> has been created as a copy of <code>all_data</code>. We can move files around using the command <code>mv</code>. Enter this command:</p>
+
+<pre><code>mv all_data_backup /tmp/</code></pre>
+
+<p>This moves <code>all_data_backup</code> into the directory <code>/tmp</code>. The directory <code>/tmp</code> is a special directory that all users can write to. It is a temporary place for storing files. Data stored in <code>/tmp</code> is automatically deleted when the computer shuts down.</p>
+
+<p>The <code>mv</code> command is also how you rename files. Since this file is so important, let&#8217;s rename it:</p>
+
+<pre><code>mv all_data all_data_IMPORTANT</code></pre>
+
+<p>Now the file name has been changed to all_data_IMPORTANT. Let&#8217;s delete the backup file now:</p>
+
+<pre><code>rm /tmp/all_data_backup</code></pre>
+
+<p>The <code>mkdir</code> command is used to create a directory. Just enter <code>mkdir</code> followed by a space, then the directory name.</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Do the following:</p>
+
+<ol>
+<li>Rename the <code>all_data_IMPORTANT</code> file to <code>all_data</code>.</li>
+
+<li>Create a directory in the <code>data</code> directory called <code>foo</code></li>
+
+<li>Then, copy the <code>all_data</code> file into <code>foo</code></li>
+</ol>
+<hr />
+<p>By default, <code>rm</code>, will NOT delete directories. You can tell <code>rm</code> to delete a directory using the <code>-r</code> option. Enter the following command:</p>
+
+<pre><code>rm -r foo</code></pre>
+
+<h3 id='count_the_words'>Count the words</h3>
+
+<p>The <code>wc</code> program (word count) counts the number of lines, words, and characters in one or more files. Make sure you are in the <code>data</code> directory, then enter the following command:</p>
+
+<pre><code>wc bert/* gerdal/*4*</code></pre>
+
+<p>For each of the files indicated, <code>wc</code> has printed a line with three numbers. The first is the number of lines in that file. The second is the number of words. Finally, the total number of characters is indicated. The final line contains this information summed over all of the files. Thus, there were 10445 characters in total.</p>
+
+<p>Remember that the <code>bert/*</code> and <code>gerdal/*4*</code> files were merged into the <code>all_data</code> file. So, we should see that <code>all_data</code> contains the same number of characters:</p>
+
+<pre><code>wc all_data</code></pre>
+
+<p>Every character in the file takes up one byte of disk space. Thus, the size of the file in bytes should also be 10445. Let&#8217;s confirm this:</p>
+
+<pre><code>ls -l all_data</code></pre>
+
+<p>Remember that <code>ls -l</code> prints out detailed information about a file and that the fifth column is the size of the file in bytes.</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Figure out how to get <code>wc</code> to print the length of the longest line in <code>all_data</code>.</p>
+<hr />
+<h3 id='the_awesome_power_of_the_pipe'>The awesome power of the Pipe</h3>
+
+<p>Suppose I wanted to only see the total number of character, words, and lines across the files <code>bert/*</code> and <code>gerdal/*4*</code>. I don&#8217;t want to see the individual counts, just the total. Of course, I could just do:</p>
+
+<pre><code>wc all_data</code></pre>
+
+<p>Since this file is a concatenation of the smaller files. Sure, this works, but I had to create the <code>all_data</code> file to do this. Thus, I have wasted a precious 7062 bytes of hard disk space. We can do this <em>without</em> creating a temporary file, but first I have to show you two more commands: <code>head</code> and <code>tail</code>. These commands print the first few, or last few, lines of a file, respectively. Try them out on <code>all_data</code>:</p>
+
+<pre><code>head all_data
+tail all_data</code></pre>
+
+<p>The <code>-n</code> option to either of these commands can be used to print the first or last <code>n</code> lines of a file. To print the first/last line of the file use:</p>
+
+<pre><code>head -n 1 all_data
+tail -n 1 all_data</code></pre>
+
+<p>Let&#8217;s turn back to the problem of printing only the total number of lines in a set of files without creating any temporary files. To do this, we want to tell the shell to take the output of the <code>wc bert/*
+gerdal/*4*</code> and send it into the <code>tail -n 1</code> command. The <code>|</code> character (called pipe) is used for this purpose. Enter the following command:</p>
+
+<pre><code>wc bert/* gerdal/Data0559 | tail -n 1</code></pre>
+
+<p>This will print only the total number of lines, characters, and words across all of these files. What is happening here? Well, <code>tail</code>, like many command line programs will read from the <em>standard input</em> when it is not given any files to operate on. In this case, it will just sit there waiting for input. That input can come from the user&#8217;s keyboard <em>or from another program</em>. Try this:</p>
+
+<pre><code>tail -n 2</code></pre>
+
+<p>Notice that your cursor just sits there blinking. Tail is waiting for data to come in. Now type:</p>
+
+<pre><code>French
+fries
+are
+good</code></pre>
+
+<p>then CONTROL+d. You should see the lines:</p>
+
+<pre><code>are
+good</code></pre>
+
+<p>printed back at you. The CONTROL+d keyboard shortcut inserts an <em>end-of-file</em> character. It is sort of the standard way of telling the program &#8221;I&#8217;m done entering data&#8221;. The <code>|</code> character is replaces the data from the keyboard with data from another command. You can string all sorts of commands together using the pipe.</p>
+
+<p>The philosophy behind these command line programs is that none of them really do anything all that impressive. BUT when you start chaining them together, you can do some really powerful things really efficiently. If you want to be proficient at using the shell, you must learn to become proficient with the pipe and redirection operators: <code>|</code>, <code>&gt;</code>, <code>&gt;&gt;</code>.</p>
+
+<p><strong>A sorting example</strong></p>
+
+<p>Let&#8217;s create a file with some words to sort for the next example. We want to create a file which contains the following names:</p>
+
+<pre><code>Bob
+Alice
+Diane
+Charles</code></pre>
+
+<p>To do this, we need a program which allows us to create text files. There are many such programs, the easiest one which is installed on almost all systems is called <code>nano</code>. Navigate to <code>/tmp</code> and enter the following command:</p>
+
+<pre><code>nano toBeSorted</code></pre>
+
+<p>Now enter the four names as shown above. When you are done, press CONTROL+O to write out the file. Press enter to use the file name <code>toBeSorted</code>. Then press CONTROL+x to exit <code>nano</code>.</p>
+
+<p>When you are back to the command line, enter the command:</p>
+
+<pre><code>sort toBeSorted</code></pre>
+
+<p>Notice that the names are now printed in alphabetical order.</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Use the <code>echo</code> command and the append operator, <code>&gt;&gt;</code>, to append your name to the file, then sort it and make a new file called Sorted.</p>
+<hr />
+<p>Let&#8217;s navigate back to <code>shell/data</code>. Enter the following command:</p>
+
+<pre><code>wc bert/* | sort -k 3 -n</code></pre>
+
+<p>We are already familiar with what the first of these two commands does: it creates a list containing the number of characters, words, and lines in each file in the <code>bert</code> directory. This list is then piped into the <code>sort</code> command, so that it can be sorted. Notice there are two options given to sort:</p>
+
+<ol>
+<li><code>-k 3</code>: Sort based on the third column</li>
+
+<li><code>-n</code>: Sort in numerical order as opposed to alphabetical order</li>
+</ol>
+
+<p>Notice that the files are sorted by the number of characters.</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Use the <code>man</code> command to find out how to sort the output from <code>wc</code> in reverse order.</p>
+<hr /><hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Combine the <code>wc</code>, <code>sort</code>, <code>head</code> and <code>tail</code> commands so that only the <code>wc</code> information for the largest file is listed</p>
+
+<p>Hint: To print the smallest file, use:</p>
+
+<pre><code>wc bert/* | sort -k 3 -n | head -n 1</code></pre>
+
+<p><strong><em>Short Exercise</em></strong> Printing the smallest file seems pretty useful. We don&#8217;t want to type out that long command often. Let&#8217;s create a simple script, a simple program, to run this command. The program will look at all of the files in the current directory and print the information about the smallest one. Let&#8217;s call the script <code>smallest</code>. We&#8217;ll use <code>nano</code> to create this file. Navigate to the <code>data</code> directory, then:</p>
+
+<pre><code>nano smallest</code></pre>
+
+<p>Then enter the following text:</p>
+
+<pre><code>#!/bin/bash
+wc * | sort -k 3 -n | head -n 1</code></pre>
+
+<p>Now, <code>cd</code> into the <code>bert</code> directory and enter the command <code>../smallest</code>. Notice that it says permission denied. This happens because we haven&#8217;t told the shell that this is an executable file. If you do <code>ls -l ../smallest</code>, it will show you the permissions on the left of the listing.</p>
+
+<p>Enter the following commands:</p>
+
+<pre><code>chmod a+x ../smallest
+../smallest</code></pre>
+
+<p>The <code>chmod</code> command is used to modify the permissions of a file. This particular command modifies the file <code>../smallest</code> by giving all users (notice the <code>a</code>) permission to execute (notice the <code>x</code>) the file. If you enter:</p>
+
+<pre><code>ls -l ../smallest</code></pre>
+
+<p>You will see that the file name is green and the permissions have changed. Congratulations, you just created your first shell script!</p>
+
+<h2 id='searching_files'>Searching files</h2>
+
+<p>You can search the contents of a file using the command <code>grep</code>. The <code>grep</code> program is very powerful and useful especially when combined with other commands by using the pipe. Navigate to the <code>bert</code> directory. Every data file in this directory has a line which says &#8220;Range&#8221;. The range represents the smallest frequency range that can be discriminated. Lets list all of the ranges from the tests that bert conducted:</p>
+
+<pre><code>grep Range *</code></pre>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Create an executable script called <code>smallestrange</code> in the <code>data</code> directory, that is similar to the <code>smallest</code> script, but prints the file containing the file with the smallest Range. Use the commands <code>grep</code>, <code>sort</code>, and <code>tail</code> to do this.</p>
+<hr />
+<h2 id='finding_files'>Finding files</h2>
+
+<p>The <code>find</code> program can be used to find files based on arbitrary criteria. Navigate to the <code>data</code> directory and enter the following command:</p>
+
+<pre><code>find . -print</code></pre>
+
+<p>This prints the name of every file or directory, recursively, starting from the current directory. Let&#8217;s exclude all of the directories:</p>
+
+<pre><code>find . -type f -print</code></pre>
+
+<p>This tells <code>find</code> to locate only files. Now try these commands:</p>
+
+<pre><code>find . -type f -name &quot;*1*&quot;
+find . -type f -name &quot;*1*&quot; -or -name &quot;*2*&quot; -print
+find . -type f -name &quot;*1*&quot; -and -name &quot;*2*&quot; -print</code></pre>
+
+<p>The <code>find</code> command can acquire a list of files and perform some operation on each file. Try this command out:</p>
+
+<pre><code>find . -type f -exec grep Volume {} \;</code></pre>
+
+<p>This command finds every file starting from <code>.</code>. Then it searches each file for a line which contains the word &#8220;Volume&#8221;. The <code>{}</code> refers to the name of each file. The trailing <code>\;</code> is used to terminate the command. This command is slow, because it is calling a new instance of <code>grep</code> for each item the <code>find</code> returns.</p>
+
+<p>A faster way to do this is to use the <code>xargs</code> command:</p>
+
+<pre><code>find . -type f -print | xargs grep Volume</code></pre>
+
+<p><code>find</code> generates a list of all the files we are interested in, then we pipe them to <code>xargs</code>. <code>xargs</code> takes the items given to it and passes them as arguments to <code>grep</code>. <code>xargs</code> generally only creates a single instance of <code>grep</code> (or whatever program it is running).</p>
+<hr />
+<p><strong>Short Exercise</strong></p>
+
+<p>Navigate to the <code>data</code> directory. Use one <code>find</code> command to perform each of the operations listed below (except number 2, which does not require a <code>find</code> command):</p>
+
+<ol>
+<li>
+<p>Find any file whose name is &#8220;NOTES&#8221; within <code>data</code> and delete it</p>
+</li>
+
+<li>
+<p>Create a new directory called <code>cleaneddata</code></p>
+</li>
+
+<li>
+<p>Move all of the files within <code>data</code> to the <code>cleaneddata</code> directory</p>
+</li>
+
+<li>
+<p>Rename all of the files to ensure that they end in <code>.txt</code> (note: it is ok for the file name to end in <code>.txt.txt</code></p>
+</li>
+</ol>
+
+<p>Hint: If you make a mistake and need to start over just do the following:</p>
+
+<ol>
+<li>
+<p>Navigate to the <code>shell</code> directory</p>
+</li>
+
+<li>
+<p>Delete the <code>data</code> directory</p>
+</li>
+
+<li>
+<p>Enter the command: <code>git checkout -- data</code> You should see that the data directory has reappeared in its original state</p>
+</li>
+</ol>
+
+<p><strong>BONUS</strong></p>
+
+<p>Redo exercise 4, except rename only the files which do not already end in <code>.txt</code>. You will have to use the <code>man</code> command to figure out how to search for files which do not match a certain name.</p>
+<hr />
+<h3 id='bonus'>Bonus:</h3>
+
+<p><strong>backtick, xargs</strong>: Example find all files with certain text</p>
+
+<p><strong>alias</strong> -&gt; rm -i</p>
+
+<p><strong>variables</strong> -&gt; use a path example</p>
+
+<p><strong>.bashrc</strong></p>
+
+<p><strong>du</strong></p>
+
+<p><strong>ln</strong></p>
+
+<p><strong>ssh and scp</strong></p>
+
+<p><strong>regular expressions</strong></p>
+
+<p><strong>permissions</strong></p>
+
+<p><strong>chaining commands together</strong></p>
