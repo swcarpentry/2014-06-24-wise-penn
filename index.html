@@ -11,6 +11,7 @@ enddate: 2014-06-25
 latlng: 39.94733,-75.193134
 registration: open
 instructor: ["Dana Bauer", "Adina Howe"]
+helper: ["Alyssa Batula", "Maneesha Sane"]
 contact: admin@software-carpentry.org
 eventbrite: 11725747025
 ---
@@ -49,6 +50,14 @@ eventbrite: 11725747025
 <p>
   <strong>Instructors:</strong>
   {{page.instructor | join: ', ' %}}
+</p>
+{% endif %}
+
+<!-- This block displays the helpers' names if they are available. -->
+{% if page.helper %}
+<p>
+  <strong>Helpers:</strong>
+  {{page.helper | join: ', ' %}}
 </p>
 {% endif %}
 
