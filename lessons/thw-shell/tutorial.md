@@ -1,8 +1,8 @@
 ---
 layout: lesson
 root: ../..
-github_username: your_user_id
-bootcamp_slug: yyyy-mm-dd-site
+github_username: swcarpentry
+bootcamp_slug: 2014-06-24-wise-penn
 title: The Unix Shell
 ---
 **Based on material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
@@ -43,7 +43,6 @@ not the default shell, it is usually installed on most systems and can be
 started by typing `bash` in the terminal. Many commands, especially a
 lot of the basic ones, work across the various shells but many things
 are different. I recommend sticking with bash and learning it well.
-([Here is a link for more information](http://en.wikipedia.org/wiki/Bash_(Unix_shell))
 
 To open a terminal, just single click on the "Terminal" icon on the
 Desktop.
