@@ -3,7 +3,7 @@ layout: lesson
 root: ../../..
 title: Git and GitHub
 ---
-**Written by [Matt Davis](mailto:jiffyclub@gmail.com)**
+**Written by [Matt Davis](jiffyclub@gmail.com)**
 
 # Git/GitHub
 

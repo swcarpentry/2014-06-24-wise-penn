@@ -68,11 +68,11 @@ Software Carpentry needs your help to grow.
 If you find a bug,
 please file a report in [our GitHub repo](https://github.com/swcarpentry/bc/).
 If you would like to host a workshop,
-please [get in touch](mailto:admin@software-carpentry.org);
+please [get in touch](admin@software-carpentry.org);
 if you'd like to teach,
 we run an [instructor training course](http://teaching.software-carpentry.org);
 and if you'd like to write lessons or exercises,
-please [let us know](mailto:admin@software-carpentry.org).
+please [let us know](admin@software-carpentry.org).
 
 To find out more,
 please visit the [http://software-carpentry.org](Software Carpentry web site)
