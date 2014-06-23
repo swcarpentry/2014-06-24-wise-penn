@@ -862,7 +862,7 @@ This command finds every file starting from `.`. Then it searches each
 file for a line which contains the word "Volume". The `{}` refers to
 the name of each file. The trailing `\;` is used to terminate the
 command.  This command is slow, because it is calling a new instance
-of `grep` for each item the `find` returns.
+of `grep` for each item the `find` returns. 
 
 A faster way to do this is to use the `xargs` command:
 
@@ -871,7 +871,9 @@ A faster way to do this is to use the `xargs` command:
 `find` generates a list of all the files we are interested in, 
 then we pipe them to `xargs`.  `xargs` takes the items given to it 
 and passes them as arguments to `grep`.  `xargs` generally only creates
-a single instance of `grep` (or whatever program it is running).
+a single instance of `grep` (or whatever program it is running).  To pass a variable to xargs, try the following and see if you can figure out how it works:
+
+    find . -type f -print | xargs -I {} echo {} {} {}
 
 * * * * 
 **Short Exercise**
