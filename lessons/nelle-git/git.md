@@ -17,13 +17,13 @@ As researchers, you (probably) want:
  -   reproducible research
  -   fast and efficient research
 
-![](lessons/nelle-git/images/Journal-of-Irrproducibe-Research.jpg)
+![](images/Journal-of-Irrproducibe-Research.jpg)
 
 The journal of Irreproducible research.
 
 And ideally, you want to avoid this:
 
-![](lessons/nelle-git/images/version_control.gif)
+![](images/version_control.gif)
 
 “Piled Higher and Deeper” by Jorge Cham: www.phdcomics.com
 
@@ -142,7 +142,7 @@ untracked. Any file you have not explicitly added at some point is
 untracked. Tracked files can themselves be in different states:
 unmodified, modified or staged.
 
-![](_images/git_file_status_lifecycle.png)
+![](images/git_file_status_lifecycle.png)
 
 You can check the status of each file in your directory with the command
 `git status`. This command will display all
@@ -252,7 +252,7 @@ Now, let’s go on github, and create an account. Once this is done, we
 can easily create a new project by cliking on the green button, on the
 main page.
 
-![](_images/github_1.png)
+![](images/github_1.png)
 
 Github redirects you to a page, where you specify the name of the
 repository and a few information. By default, git repositories hosted on
@@ -265,7 +265,7 @@ proceed to configure your local repository. Note that if you decide to
 create a README file, a Licence or a .gitignore on github, it will
 automatically commit.
 
-![](_images/github_2.png)
+![](images/github_2.png)
 
 To use this new git repository, we are going to associate to this url a
 name. To add a new remote Git repository as a shortname you can
@@ -308,16 +308,16 @@ contains metadata: a hash to identify the commit, the author name, date
 etc. It also contains a link to the parent commit. Hence, committing
 creates a sort of linked list of commits.
 
-[![](_images/git_0-300dpi.png)](_images/git_0-300dpi.png)
+![](images/git_0-300dpi.png)
 
 A branch is just a pointer to a commit:
 
-[![](_images/git_1-300dpi.png)](_images/git_1-300dpi.png)
+![](images/git_1-300dpi.png)
 
 In fact, you’ve been using a branch called master since the beginning.
 Creating a new branch just adds a pointer to a commit:
 
-[![](_images/git_2-300dpi.png)](_images/git_2-300dpi.png)
+![](images/git_2-300dpi.png)
 
 Let’s now create a new branch and call it `testing`.
 You can either use the commands:
@@ -327,7 +327,7 @@ You can either use the commands:
 Now, how does github know in which branch you are? It just creates a
 pointer called HEAD to the current working branch:
 
-[![](_images/git_3-300dpi.png)](_images/git_3-300dpi.png)
+![](images/git_3-300dpi.png)
 
 You can check which branch you created by running:
 
@@ -345,7 +345,7 @@ You can create and change branch in a one-liner:
 If you add commits on both `master` and
 `testing`, the code can diverge:
 
-[![](_images/git_10-300dpi.png)](_images/git_10-300dpi.png)
+![](images/git_10-300dpi.png)
 
 Now let’s add a new commit:
 
