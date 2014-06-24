@@ -912,8 +912,6 @@ require a `find` command):
 
 3.  Move all of the files within `data` to the `cleaneddata` directory
 
-    mkdir cleaneddata; cp data/*/* cleaneddata/.
-
 4.  Rename all of the files to ensure that they end in `.txt` (note:
     it is ok for the file name to end in `.txt.txt`
 
