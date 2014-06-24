@@ -4,6 +4,7 @@ root: ../..
 title: SQL for Science
 level: intermediate
 ---
+**Lesson created by Jessica Kerr for the WiSE Bootcamp at LBL**
 
 # SQL
 SQL stands for Structured Query Language. It's a common language to many
