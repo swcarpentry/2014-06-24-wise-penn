@@ -511,7 +511,6 @@ for each day across all patients.
 * Use # some kind of explanation to add comments to programs.
 * Use `mean()`, `max()`, `min()` and `sd()` to calculate simple statistics.
 * Update vectors using append
-* Write a simple for loop 
 * Use base R and the `ggplot2` library for creating simple visualizations.
 
 ## Next Steps
